@@ -1,0 +1,4 @@
+%{
+  "deps_nix": {:hex, :deps_nix, "0.2.2", "b3410cbb4597db79ac9ae324269d7a3f585c04850a4f9ee170123241f1c1d378", [:mix], [{:jason, "~> 1.4", [hex: :jason, repo: "hexpm", optional: false]}], "hexpm", "055d2852c150d99e43114586b90572c8834ed3bc363dcd2e3ccbb28c02d91098"},
+  "jason": {:hex, :jason, "1.4.1", "af1504e35f629ddcdd6addb3513c3853991f694921b1b9368b0bd32beb9f1b63", [:mix], [{:decimal, "~> 1.0 or ~> 2.0", [hex: :decimal, repo: "hexpm", optional: true]}], "hexpm", "fbb01ecdfd565b56261302f7e1fcc27c4fb8f32d56eab74db621fc154604a7a1"},
+}
