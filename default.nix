@@ -4,5 +4,16 @@ beamPackages.mixRelease {
   pname = "locale-repro";
   version = "0.1.0";
   src = ./.;
-  mixNixDeps = callPackages ./deps.nix { };
+  mixNixDeps = callPackages ./deps.nix {
+    overrides = (final: prev:
+      {
+        ex_cldr_currencies = prev.ex_cldr_currencies.override {
+          preBuild = ''
+            data_dir="$(mix eval --no-compile --no-deps-check "Cldr.Config.cldr_data_dir() |> IO.puts")"
+            mkdir -p "$(dirname "$data_dir")"
+            ln -sfv ${prev.ex_cldr}/src/priv/cldr "$(dirname "$data_dir")"
+          '';
+        };
+      });
+  };
 }
