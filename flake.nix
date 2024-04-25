@@ -23,6 +23,10 @@
     in
 
     {
+      packages = forAllSystems ({ callPackage, ... }: {
+        default = callPackage ./. { };
+      });
+
       devShells = forAllSystems ({ callPackage, ... }: {
         default = callPackage ./shell.nix { };
       });

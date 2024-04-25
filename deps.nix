@@ -53,7 +53,7 @@ let
           sha256 = "8758000c97bdf4b2583c3fedd7cfa35896567a7f8351248b2faa33ba73841cc7";
         };
 
-        beamDeps = [ cldr_utils decimal ];
+        beamDeps = [ cldr_utils decimal jason ];
       };
 
     ex_cldr_currencies =
@@ -70,7 +70,24 @@ let
           sha256 = "095d5e973bf0ee066dd1153990d10cb6fa6d8ff0e028295bdce7a7821c70a0e4";
         };
 
-        beamDeps = [ ex_cldr ];
+        beamDeps = [ ex_cldr jason ];
+      };
+
+    jason =
+      let
+        version = "1.4.1";
+      in
+      buildMix {
+        inherit version;
+        name = "jason";
+
+        src = fetchHex {
+          inherit version;
+          pkg = "jason";
+          sha256 = "fbb01ecdfd565b56261302f7e1fcc27c4fb8f32d56eab74db621fc154604a7a1";
+        };
+
+        beamDeps = [ decimal ];
       };
   };
 in
