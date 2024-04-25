@@ -22,8 +22,8 @@ defmodule LocaleRepro.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:deps_nix, "~> 0.2.2", only: :dev}
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:deps_nix, "~> 0.2.2", only: :dev},
+      {:ex_cldr_currencies, "~> 2.16"}
     ]
   end
 
