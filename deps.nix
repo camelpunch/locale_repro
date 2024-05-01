@@ -39,6 +39,23 @@ let
         };
       };
 
+    digital_token =
+      let
+        version = "0.6.0";
+      in
+      buildMix {
+        inherit version;
+        name = "digital_token";
+
+        src = fetchHex {
+          inherit version;
+          pkg = "digital_token";
+          sha256 = "2455d626e7c61a128b02a4a8caddb092548c3eb613ac6f6a85e4cbb6caddc4d1";
+        };
+
+        beamDeps = [ cldr_utils jason ];
+      };
+
     ex_cldr =
       let
         version = "2.38.0";
@@ -56,6 +73,23 @@ let
         beamDeps = [ cldr_utils decimal jason ];
       };
 
+    ex_cldr_calendars =
+      let
+        version = "1.23.1";
+      in
+      buildMix {
+        inherit version;
+        name = "ex_cldr_calendars";
+
+        src = fetchHex {
+          inherit version;
+          pkg = "ex_cldr_calendars";
+          sha256 = "2983f002016c283d14ee838d1950d2f9a1e58e8b19a2145d95079874fe6de10d";
+        };
+
+        beamDeps = [ ex_cldr_numbers jason ];
+      };
+
     ex_cldr_currencies =
       let
         version = "2.16.1";
@@ -71,6 +105,40 @@ let
         };
 
         beamDeps = [ ex_cldr jason ];
+      };
+
+    ex_cldr_dates_times =
+      let
+        version = "2.17.0";
+      in
+      buildMix {
+        inherit version;
+        name = "ex_cldr_dates_times";
+
+        src = fetchHex {
+          inherit version;
+          pkg = "ex_cldr_dates_times";
+          sha256 = "8377501cc6245ad235ee765bcab455e9e8c3f53cc5d775c094bf2cebb641e7ed";
+        };
+
+        beamDeps = [ ex_cldr_calendars ex_cldr_numbers jason ];
+      };
+
+    ex_cldr_numbers =
+      let
+        version = "2.33.1";
+      in
+      buildMix {
+        inherit version;
+        name = "ex_cldr_numbers";
+
+        src = fetchHex {
+          inherit version;
+          pkg = "ex_cldr_numbers";
+          sha256 = "c003bfaa3fdee6bab5195f128b94038c2ce1cf4879a759eef431dd075d9a5dac";
+        };
+
+        beamDeps = [ decimal digital_token ex_cldr ex_cldr_currencies jason ];
       };
 
     jason =

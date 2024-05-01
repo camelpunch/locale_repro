@@ -24,6 +24,7 @@ defmodule LocaleRepro.MixProject do
     [
       {:deps_nix, "~> 0.2.2", only: :dev},
       {:ex_cldr_currencies, "~> 2.16"},
+      {:ex_cldr_dates_times, "~> 2.16"},
       {:jason, "~> 1.4"}
     ]
   end
